@@ -35,20 +35,6 @@ namespace Caso_Estudio_1.Controllers
         }
 
 
-        // GET: /Citas/Buscar/5
-        //[HttpGet("Citas/Buscar/{id}")]
-        //public async Task<IActionResult> Buscar(int id)
-        //{
-        //    var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
-
-        //    if (cita == null)
-        //    {
-        //        TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
-        //        return RedirectToAction("List");
-        //    }
-
-        //    return View("Detalles", cita);
-        //}
 
         // GET: /Citas/Detalles/5
         [HttpGet("Citas/Detalles/{id}")]
@@ -141,7 +127,25 @@ namespace Caso_Estudio_1.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> ListByServicio(int id)
+        {
 
+            var servicio = await dbContext.Servicios.FindAsync(id);
+            if (servicio == null)
+            {
+                TempData["Mensaje"] = "Servicio no encontrado....";
+                return RedirectToAction("List", "Servicios");
+            }
+
+            
+            var citas = await dbContext.Citas
+                                       .Where(c => c.IdServicio == id)
+                                       .ToListAsync();
+
+            ViewBag.Servicio = servicio; 
+            return View(citas);
+        }
 
 
     }
