@@ -1,0 +1,29 @@
+﻿@*
+    We bind the view model to this form so I can fill it out
+*@
+@model Caso_Estudio_1.Models.AddCategoriaViewModel;
+
+<h1>Crear Categoria</h1>
+
+<div>
+    <form method="post">
+        <div class="mt-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" asp-for="nombre" />
+        </div>
+
+        <div class="mt-3">
+            <label class="form-label">Detalle</label>
+            <input type="text" class="form-control" asp-for="detalle" />
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">
+                Crear
+            </button>
+            <button type="submit" class="btn btn-dark">
+                <a class="text-white text-decoration-none" asp-action="List" asp-controller="Categoria">Cancelar</a>
+            </button>
+        </div>
+    </form>
+</div>
