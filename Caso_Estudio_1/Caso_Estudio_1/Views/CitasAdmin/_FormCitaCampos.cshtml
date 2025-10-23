@@ -1,0 +1,40 @@
+﻿@model Caso_Estudio_1.Models.AddCitaViewModel
+<div class="mb-3">
+    <label asp-for="NombreDeLaPersona" class="form-label"></label>
+    <input asp-for="NombreDeLaPersona" class="form-control" />
+    <span asp-validation-for="NombreDeLaPersona" class="text-danger"></span>
+</div>
+<div class="row g-3">
+    <div class="col-md-4">
+        <label asp-for="Identificacion" class="form-label"></label>
+        <input asp-for="Identificacion" class="form-control" />
+        <span asp-validation-for="Identificacion" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input asp-for="Telefono" class="form-control" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Correo" class="form-label"></label>
+        <input asp-for="Correo" class="form-control" />
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+</div>
+<div class="row g-3 mt-1">
+    <div class="col-md-6">
+        <label asp-for="FechaNacimiento" class="form-label"></label>
+        <input asp-for="FechaNacimiento" type="date" class="form-control" />
+        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="FechaDeLaCita" class="form-label"></label>
+        <input asp-for="FechaDeLaCita" type="datetime-local" class="form-control" />
+        <span asp-validation-for="FechaDeLaCita" class="text-danger"></span>
+    </div>
+</div>
+<div class="mt-3">
+    <label asp-for="Direccion" class="form-label"></label>
+    <textarea asp-for="Direccion" rows="3" class="form-control"></textarea>
+    <span asp-validation-for="Direccion" class="text-danger"></span>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Caso_Estudio_1.Models.AddCitaViewModel
+@{
+    ViewData["Title"] = "Editar cita";
+    var servicios = ViewBag.Servicios as List<Caso_Estudio_1.Models.ServicioViewModel>;
+    var idCita = (int)ViewData["IdCita"];
+}
+<h2>@ViewData["Title"] #@idCita</h2>
+
+<form asp-action="Edit" method="post" class="card p-3">
+    <input type="hidden" name="id" value="@idCita" />
+    <div class="mb-3">
+        <label class="form-label">Servicio</label>
+        <select asp-for="IdServicio" class="form-select" required>
+            @foreach (var s in servicios)
+            {
+                <option value="@s.Id" selected="@(s.Id == Model.IdServicio)">
+                    @s.Nombre
+                </option>
+            }
+        </select>
+        <span asp-validation-for="IdServicio" class="text-danger"></span>
+    </div>
+
+    <partial name="_FormCitaCampos" model="Model" />
+
+    <button class="btn btn-primary" type="submit">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

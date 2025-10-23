@@ -28,12 +28,32 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/Citas/Buscar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcQnVzY2FyLmNzaHRtbA==
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/Citas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGV0YWlscy5jc2h0bWw=
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/CitasAdmin/_FormCitaCampos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNBZG1pblxfRm9ybUNpdGFDYW1wb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/Citas/Buscar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcQnVzY2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aguil/Source/Repos/APP_Exam/Caso_Estudio_1/Caso_Estudio_1/Views/Citas/Index.cshtml]
