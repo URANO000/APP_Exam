@@ -43,7 +43,7 @@ namespace Caso_Estudio_1.Controllers
             await dbContext.Servicios.AddAsync(servicios);
             //Save the changes
             await dbContext.SaveChangesAsync();
-            return RedirectToAction("List, Servicios");
+            return RedirectToAction("List", "Servicios");
         }
 
         //LIST
@@ -76,7 +76,8 @@ namespace Caso_Estudio_1.Controllers
                 servicios.Especialidad = viewModel.Especialidad;
                 servicios.Especialista = viewModel.Especialista;
                 servicios.Clinica = viewModel.Clinica;
-                servicios.FechaDeRegistro = DateTime.Now;
+                servicios.FechaDeModificacion = DateTime.Now;
+
                 servicios.Estado = viewModel.Estado;
 
                 await dbContext.SaveChangesAsync();

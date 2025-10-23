@@ -1,1 +1,63 @@
-﻿
+﻿@model Caso_Estudio_1.Models.Entities.Servicios
+
+<h3 class="m-2">Editar Servicio</h3>
+
+@if (Model == null)
+{
+    <p>No se encontró ningún servicio con este ID.</p>
+}
+else
+{
+    <div class="m-3">
+        <form method="post">
+            <div class="mt-3">
+                <label class="form-label text-white-50">Id</label>
+                <input type="text" class="form-control bg-dark text-white border-0" asp-for="Id" readonly />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Nombre</label>
+                <input type="text" class="form-control bg-dark text-white border-0" asp-for="Nombre" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Descripción</label>
+                <input type="text" class="form-control bg-dark text-white border-0" asp-for="Descripcion" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Monto (₡)</label>
+                <input type="number" step="0.01" class="form-control bg-dark text-white border-0" asp-for="Monto" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">IVA (₡)</label>
+                <input type="number" step="0.01" class="form-control bg-dark text-white border-0" asp-for="IVA" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Especialista</label>
+                <input type="text" class="form-control bg-dark text-white border-0" asp-for="Especialista" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Clínica</label>
+                <input type="text" class="form-control bg-dark text-white border-0" asp-for="Clinica" required />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label text-white-50">Estado</label>
+                <select class="form-select bg-dark text-white border-0" asp-for="Estado">
+                    <option value="true" selected="@(Model.Estado == true)">Activo</option>
+                    <option value="false" selected="@(Model.Estado == false)">Inactivo</option>
+                </select>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a class="btn btn-dark text-white text-decoration-none" asp-action="List" asp-controller="Servicios">Cancelar</a>
+                <a class="btn btn-danger text-white text-decoration-none" asp-controller="Servicios" asp-action="Delete" asp-route-id="@Model.Id">Eliminar</a>
+            </div>
+        </form>
+    </div>
+}

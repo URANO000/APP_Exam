@@ -1,1 +1,71 @@
-﻿
+﻿@model List<Caso_Estudio_1.Models.Entities.Servicios>
+
+<h1>Servicios</h1>
+
+<div class="mt-3">
+    <button class="btn btn-primary">
+        <a class="text-white text-decoration-none" asp-action="Add">Crear</a>
+    </button>
+</div>
+
+<br />
+
+<table class="table table-dark border-dark">
+    <thead>
+        <tr class="text-white">
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Monto</th>
+            <th scope="col">IVA</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Especialista</th>
+            <th scope="col">Clínica</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody class="text-white">
+        @foreach (var servicio in Model)
+        {
+            <tr scope="row">
+                <td>@servicio.Id</td>
+                <td>@servicio.Nombre</td>
+                <td>@servicio.Descripcion</td>
+                <td>₡@servicio.Monto.ToString("N2")</td>
+                <td>₡@servicio.IVA.ToString("N2")</td>
+                <td>
+                    @{
+                        string especialidadTexto = servicio.Especialidad switch
+                        {
+                            1 => "Medicina General",
+                            2 => "Imagenología",
+                            3 => "Microbiología",
+                            _ => "Desconocida"
+                        };
+                    }
+                    @especialidadTexto
+                </td>
+                <td>@servicio.Especialista</td>
+                <td>@servicio.Clinica</td>
+                <td>
+                    @(servicio.Estado == true ? "Activo" : "Inactivo")
+                </td>
+                <td>
+                    <button class="btn btn-info">
+                        <a class="text-white text-decoration-none"
+                           asp-controller="Servicios"
+                           asp-action="Edit"
+                           asp-route-id="@servicio.Id">Editar</a>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <a class="text-white text-decoration-none"
+                           asp-controller="Citas"
+                           asp-action="ListByServicio"
+                           asp-route-id="@servicio.Id">Ver citas</a>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
