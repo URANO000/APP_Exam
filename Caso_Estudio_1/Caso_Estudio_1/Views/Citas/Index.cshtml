@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Caso_Estudio_1.Models.ServicioViewModel>
+@{
+    ViewData["Title"] = "Servicios disponibles";
+}
+
+<h2 class="mb-3">@ViewData["Title"]</h2>
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-info">@TempData["Msg"]</div>
+}
+
+<p class="mb-3">
+    <a class="btn btn-outline-primary" asp-action="Buscar">Buscar cita por código</a>
+</p>
+
+<table class="table table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Servicio</th>
+            <th>Especialidad</th>
+            <th>Especialista</th>
+            <th>Monto</th>
+            <th>Clínica</th>
+            <th style="width: 120px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Nombre</td>
+                <td>@s.EspecialidadTexto</td>
+                <td>@s.Especialista</td>
+                <td>₡ @s.Monto</td>
+                <td>@s.Clinica</td>
+                <td class="text-end">
+                    <a class="btn btn-primary btn-sm" asp-action="Reservar" asp-route-id="@s.Id">Reservar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

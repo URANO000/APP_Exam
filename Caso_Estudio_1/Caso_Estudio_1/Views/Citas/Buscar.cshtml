@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Buscar cita";
+}
+
+<h2 class="mb-3">@ViewData["Title"]</h2>
+
+<form asp-action="Buscar" method="post" class="card p-3">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label class="form-label">Código de cita (IdCita)</label>
+        <input type="number" class="form-control" name="id" min="1" required />
+        <div class="form-text">Ingrese el número de cita tal como fue emitido.</div>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">Buscar</button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</form>
