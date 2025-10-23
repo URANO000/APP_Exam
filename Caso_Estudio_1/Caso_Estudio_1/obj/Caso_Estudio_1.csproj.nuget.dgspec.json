@@ -51,7 +51,7 @@
           "dependencies": {
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.1.2, )"
+              "version": "[5.2.0, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
