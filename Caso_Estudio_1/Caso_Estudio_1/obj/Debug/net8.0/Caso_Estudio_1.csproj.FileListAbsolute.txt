@@ -285,3 +285,16 @@ C:\Users\kkoni\OneDrive\Desktop\Documents\Visual Studio 2022\Caso\Caso_Estudio_1
 C:\Users\kkoni\OneDrive\Desktop\Documents\Visual Studio 2022\Caso\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\kkoni\OneDrive\Desktop\Documents\Visual Studio 2022\Caso\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\kkoni\OneDrive\Desktop\Documents\Visual Studio 2022\Caso\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.csproj.AssemblyReference.cache
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.AssemblyInfoInputs.cache
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.AssemblyInfo.cs
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.csproj.CoreCompileInputs.cache
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.RazorAssemblyInfo.cache
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.RazorAssemblyInfo.cs
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.sourcelink.json
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.dll
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\refint\Caso_Estudio_1.dll
+C:\Users\kkoni\OneDrive\Desktop\Documents\GitHub\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.pdb
