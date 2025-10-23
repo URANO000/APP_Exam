@@ -31,11 +31,11 @@ namespace Caso_Estudio_1.Controllers
             return View(citas);
         }
 
-        //BUSCAR CITAS
-        [HttpGet]
+        // GET: /Citas/Buscar/5
+        [HttpGet("Citas/Buscar/{id}")]
         public async Task<IActionResult> Buscar(int id)
         {
-            var cita = await dbContext.Citas.FindAsync(id);
+            var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
 
             if (cita == null)
             {
@@ -46,10 +46,18 @@ namespace Caso_Estudio_1.Controllers
             return View("Detalles", cita);
         }
 
-        //Detalles, this is gonna be usedby the search thingy
-        [HttpGet]
-        public IActionResult Detalles(Citas cita)
+        // GET: /Citas/Detalles/5
+        [HttpGet("Citas/Detalles/{id}")]
+        public async Task<IActionResult> Detalles(int id)
         {
+            var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (cita == null)
+            {
+                TempData["Mensaje"] = "Estimado usuario, no se ha encontrado la cita, favor realice una....";
+                return RedirectToAction("List");
+            }
+
             return View(cita);
         }
 
