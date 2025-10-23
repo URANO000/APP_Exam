@@ -16,7 +16,6 @@ namespace Caso_Estudio_1.Data
             _connectionString = configuration.GetConnectionString("Contexto");
         }
 
-        // ✅ 1. LISTAR SERVICIOS DISPONIBLES
         public List<ServicioViewModel> ListarServicios()
         {
             var lista = new List<ServicioViewModel>();
@@ -49,7 +48,6 @@ namespace Caso_Estudio_1.Data
             return lista;
         }
 
-        // ✅ 2. REGISTRAR UNA NUEVA CITA (incluye FechaDeRegistro)
         public void RegistrarCita(AddCitaViewModel model)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -87,7 +85,6 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 3. BUSCAR UNA CITA POR ID
         public CitaDetailsViewModel? BuscarCita(int id)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -139,7 +136,6 @@ namespace Caso_Estudio_1.Data
             return null;
         }
 
-        // ✅ 4. LISTAR TODAS LAS CITAS
         public List<CitaDetailsViewModel> ListarCitas()
         {
             var list = new List<CitaDetailsViewModel>();
@@ -173,7 +169,6 @@ namespace Caso_Estudio_1.Data
             return list;
         }
 
-        // ✅ 5. OBTENER CITA PARA EDITAR
         public AddCitaViewModel? ObtenerCitaParaEditar(int id)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -216,7 +211,6 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 6. ACTUALIZAR UNA CITA (recalcula total desde SERVICIOS)
         public void ActualizarCita(int id, AddCitaViewModel m)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -263,7 +257,6 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 7. ELIMINAR UNA CITA
         public void EliminarCita(int id)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -277,7 +270,6 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 8. LISTA BÁSICA DE SERVICIOS PARA COMBOBOX
         public List<ServicioViewModel> ListarServiciosBasico()
         {
             var list = new List<ServicioViewModel>();
