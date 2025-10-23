@@ -1,7 +1,9 @@
-﻿using Caso_Estudio_1.Data;
+﻿
+using Caso_Estudio_1.Data;
 using Caso_Estudio_1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Caso_Estudio_1.Controllers
 {
@@ -15,11 +17,19 @@ namespace Caso_Estudio_1.Controllers
         [HttpGet]
         public IActionResult List(int? idServicio)
         {
-            // Para el filtro (dropdown opcional en la vista)
-            ViewBag.Servicios = _db.Servicios
-                                   .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = $"{s.Nombre} (Id {s.Id})" })
-                                   .OrderBy(s => s.Text)
-                                   .ToList();
+            var serviciosBasicos = _db.Servicios
+                .AsNoTracking()
+                .Select(s => new { s.Id, s.Nombre })
+                .OrderBy(s => s.Nombre)
+                .ToList();
+
+            ViewBag.Servicios = serviciosBasicos
+                .Select(s => new SelectListItem
+                {
+                    Value = s.Id.ToString(),
+                    Text = $"{s.Nombre} (Id {s.Id})"
+                })
+                .ToList();
 
             var q = from c in _db.Citas
                     join s in _db.Servicios on c.IdServicio equals s.Id
@@ -48,8 +58,17 @@ namespace Caso_Estudio_1.Controllers
                 q = q.Where(x => x.IdServicio == idServicio.Value);
 
             var modelo = q.OrderByDescending(x => x.FechaDeRegistro).ToList();
+
+            foreach (var it in (List<SelectListItem>)ViewBag.Servicios)
+            {
+                it.Selected = idServicio.HasValue && it.Value == idServicio.Value.ToString();
+            }
+
             ViewBag.IdServicio = idServicio;
             return View(modelo);
         }
+
+        [HttpGet("ReservaAdmin/ListByServicio/{idServicio:int}")]
+        public IActionResult ListByServicio(int idServicio) => List(idServicio);
     }
 }
