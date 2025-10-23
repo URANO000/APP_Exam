@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj": {}
+    "C:\\Users\\aguil\\Source\\Repos\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj": {
+    "C:\\Users\\aguil\\Source\\Repos\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
+        "projectUniqueName": "C:\\Users\\aguil\\Source\\Repos\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
         "projectName": "Caso_Estudio_1",
-        "projectPath": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
-        "packagesPath": "C:\\Users\\Isaac Navarro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\obj\\",
+        "projectPath": "C:\\Users\\aguil\\Source\\Repos\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
+        "packagesPath": "C:\\Users\\aguil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aguil\\Source\\Repos\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Isaac Navarro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aguil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,7 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.10, )"

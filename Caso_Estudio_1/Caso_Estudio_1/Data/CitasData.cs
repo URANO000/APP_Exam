@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using Caso_Estudio_1.Models;
-using Microsoft.Extensions.Configuration;
+﻿using Caso_Estudio_1.Models;
+using Microsoft.Data.SqlClient;
+
 
 namespace Caso_Estudio_1.Data
 {
@@ -10,13 +8,11 @@ namespace Caso_Estudio_1.Data
     {
         private readonly string _connectionString;
 
-        // Constructor: lee la cadena "Contexto" del appsettings.json
         public CitasData(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Contexto");
         }
 
-        // ✅ 1. LISTAR SERVICIOS ACTIVOS
         public List<ServicioViewModel> ListarServicios()
         {
             var lista = new List<ServicioViewModel>();
@@ -47,7 +43,6 @@ namespace Caso_Estudio_1.Data
             return lista;
         }
 
-        // ✅ 2. REGISTRAR UNA NUEVA CITA
         public void RegistrarCita(AddCitaViewModel model)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -79,7 +74,6 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 3. BUSCAR CITA POR ID
         public CitaDetailsViewModel BuscarCita(int id)
         {
             using (var con = new SqlConnection(_connectionString))
