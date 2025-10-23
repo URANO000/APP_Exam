@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vDdr0hvKf5I=",
+  "dgSpecHash": "xqrBo8uRszY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\Visual Studio 2022\\Caso\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
+  "projectFilePath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\GitHub\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kkoni\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\kkoni\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

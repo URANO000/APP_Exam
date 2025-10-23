@@ -7756,11 +7756,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\Visual Studio 2022\\Caso\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
+      "projectUniqueName": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\GitHub\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
       "projectName": "Caso_Estudio_1",
-      "projectPath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\Visual Studio 2022\\Caso\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
+      "projectPath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\GitHub\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Caso_Estudio_1.csproj",
       "packagesPath": "C:\\Users\\kkoni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\Visual Studio 2022\\Caso\\Caso_Estudio_1\\Caso_Estudio_1\\obj\\",
+      "outputPath": "C:\\Users\\kkoni\\OneDrive\\Desktop\\Documents\\GitHub\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
