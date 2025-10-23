@@ -17,39 +17,37 @@ namespace Caso_Estudio_1.Controllers
 
         //;ISTAR CITAS
         [HttpGet]
-
-        public async Task<IActionResult> List(int? idServicio)
+        public async Task<IActionResult> List(int? searchId)
         {
             var citasQuery = dbContext.Citas.Include(c => c.Servicio).AsQueryable();
 
-            if (idServicio.HasValue)
+            if (searchId.HasValue)
             {
-                citasQuery = citasQuery.Where(c => c.IdServicio == idServicio.Value);
+                citasQuery = citasQuery.Where(c => c.Id == searchId.Value);
+                if (!citasQuery.Any())
+                {
+                    TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
+                }
             }
 
             var citas = await citasQuery.ToListAsync();
             return View(citas);
         }
 
-        //BUSCAR CITAS
-        [HttpGet]
-        public async Task<IActionResult> Buscar(int id)
+
+
+        // GET: /Citas/Detalles/5
+        [HttpGet("Citas/Detalles/{id}")]
+        public async Task<IActionResult> Detalles(int id)
         {
-            var cita = await dbContext.Citas.FindAsync(id);
+            var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
 
             if (cita == null)
             {
-                TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
+                TempData["Mensaje"] = "Estimado usuario, no se ha encontrado la cita, favor realice una....";
                 return RedirectToAction("List");
             }
 
-            return View("Detalles", cita);
-        }
-
-        //Detalles, this is gonna be usedby the search thingy
-        [HttpGet]
-        public IActionResult Detalles(Citas cita)
-        {
             return View(cita);
         }
 
@@ -129,7 +127,25 @@ namespace Caso_Estudio_1.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> ListByServicio(int id)
+        {
 
+            var servicio = await dbContext.Servicios.FindAsync(id);
+            if (servicio == null)
+            {
+                TempData["Mensaje"] = "Servicio no encontrado....";
+                return RedirectToAction("List", "Servicios");
+            }
+
+            
+            var citas = await dbContext.Citas
+                                       .Where(c => c.IdServicio == id)
+                                       .ToListAsync();
+
+            ViewBag.Servicio = servicio; 
+            return View(citas);
+        }
 
 
     }

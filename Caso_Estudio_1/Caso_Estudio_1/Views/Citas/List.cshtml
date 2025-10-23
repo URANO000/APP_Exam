@@ -5,10 +5,11 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <!-- Search form -->
-    <form asp-action="Buscar" asp-controller="Citas" method="get" class="d-flex">
-        <input type="number" name="id" class="form-control me-2" placeholder="Buscar por ID de cita" />
+    <form asp-action="List" asp-controller="Citas" method="get" class="d-flex">
+        <input type="number" name="searchId" class="form-control me-2" placeholder="Buscar por ID de cita" />
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
+
 
     <a asp-controller="Servicios" asp-action="List" class="btn btn-success">Ver Servicios / Reservar</a>
 </div>

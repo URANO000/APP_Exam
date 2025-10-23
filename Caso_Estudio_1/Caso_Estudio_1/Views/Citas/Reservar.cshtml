@@ -21,37 +21,37 @@ else
 
         <div class="mb-3">
             <label class="form-label">Nombre de la Persona</label>
-            <input type="text" class="form-control" asp-for="NombreDeLaPersona" required />
+            <input type="text" class="form-control bg-dark text-white border-0" asp-for="NombreDeLaPersona" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Identificación</label>
-            <input type="text" class="form-control" asp-for="Identificacion" required />
+            <input type="text" class="form-control bg-dark text-white border-0" asp-for="Identificacion" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Teléfono</label>
-            <input type="text" class="form-control" asp-for="Telefono" required />
+            <input type="text" class="form-control bg-dark text-white border-0" asp-for="Telefono" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Correo</label>
-            <input type="email" class="form-control" asp-for="Correo" required />
+            <input type="email" class="form-control bg-dark text-white border-0" asp-for="Correo" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" asp-for="FechaNacimiento" required />
+            <input type="date" class="form-control bg-dark text-white border-0" asp-for="FechaNacimiento" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Dirección</label>
-            <input type="text" class="form-control" asp-for="Direccion" required />
+            <input type="text" class="form-control bg-dark text-white border-0" asp-for="Direccion" required />
         </div>
 
         <div class="mb-3">
             <label class="form-label">Fecha de la Cita</label>
-            <input type="date" class="form-control"
+            <input type="date" class="form-control bg-dark text-white border-0"
                    asp-for="FechaDeLaCita"
                    min="1753-01-01"
                    value="@(Model.FechaDeLaCita.ToString("yyyy-MM-dd"))"
