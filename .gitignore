@@ -1,0 +1,12 @@
+# Build artifacts 
+**/bin/ 
+**/obj/ 
+.vs/ 
+*.dll 
+*.pdb 
+*.cache 
+project.assets.json 
+*.nuget.g.props 
+*.nuget.g.targets 
+*.nuget.cache 
+*.dgspec.json 
