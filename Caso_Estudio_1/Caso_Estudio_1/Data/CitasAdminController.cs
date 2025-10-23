@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Caso_Estudio_1.Data;
 using Caso_Estudio_1.Models;
+using System;
 
 namespace Caso_Estudio_1.Controllers
 {
+    // CRUD Administrativo de Citas (lista, crea, edita, elimina, detalles)
     public class CitasAdminController : Controller
     {
         private readonly CitasData _data;
-        public CitasAdminController(CitasData data) => _data = data;
+
+        public CitasAdminController(CitasData data)
+        {
+            _data = data;
+        }
 
         // GET: /CitasAdmin
         public IActionResult Index()
@@ -34,15 +40,26 @@ namespace Caso_Estudio_1.Controllers
         // POST: /CitasAdmin/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(AddCitaViewModel m)
+        public IActionResult Create(AddCitaViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Servicios = _data.ListarServiciosBasico();
-                return View(m);
+                return View(model);
             }
-            _data.RegistrarCita(m);
-            return RedirectToAction(nameof(Index));
+
+            try
+            {
+                _data.RegistrarCita(model);
+                TempData["Msg"] = "Cita creada correctamente.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error al crear la cita: " + ex.Message);
+                ViewBag.Servicios = _data.ListarServiciosBasico();
+                return View(model);
+            }
         }
 
         // GET: /CitasAdmin/Edit/5
@@ -51,24 +68,35 @@ namespace Caso_Estudio_1.Controllers
             var vm = _data.ObtenerCitaParaEditar(id);
             if (vm == null) return NotFound();
             ViewBag.Servicios = _data.ListarServiciosBasico();
-            // guardamos el id en route/hidden mediante ViewData
-            ViewData["IdCita"] = id;
+            ViewData["IdCita"] = id; // para el hidden del form
             return View(vm);
         }
 
         // POST: /CitasAdmin/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, AddCitaViewModel m)
+        public IActionResult Edit(int id, AddCitaViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Servicios = _data.ListarServiciosBasico();
                 ViewData["IdCita"] = id;
-                return View(m);
+                return View(model);
             }
-            _data.ActualizarCita(id, m);
-            return RedirectToAction(nameof(Index));
+
+            try
+            {
+                _data.ActualizarCita(id, model);
+                TempData["Msg"] = $"Cita #{id} actualizada.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error al actualizar: " + ex.Message);
+                ViewBag.Servicios = _data.ListarServiciosBasico();
+                ViewData["IdCita"] = id;
+                return View(model);
+            }
         }
 
         // GET: /CitasAdmin/Delete/5
@@ -84,8 +112,19 @@ namespace Caso_Estudio_1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            _data.EliminarCita(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                _data.EliminarCita(id);
+                TempData["Msg"] = $"Cita #{id} eliminada.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error al eliminar: " + ex.Message);
+                var d = _data.BuscarCita(id);
+                if (d == null) return RedirectToAction(nameof(Index));
+                return View("Delete", d);
+            }
         }
     }
 }
