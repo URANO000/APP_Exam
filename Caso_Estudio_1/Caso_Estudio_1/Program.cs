@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 
 //Dependency injection of DBCONTEXT
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Contexto")));
+builder.Services.AddTransient<CitasData>();
 
 var app = builder.Build();
 

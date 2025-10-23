@@ -7,11 +7,11 @@ namespace Caso_Estudio_1.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
-            //EMPTY
+            
         }
 
         //Entities are gonna go here, we are referencing the tables
-        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Citas> Citas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
     }
 }
