@@ -595,7 +595,6 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.Build.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.Build.Framework.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\Microsoft.Build.Locator.dll
@@ -658,7 +657,6 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\NuGet.ProjectModel.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\NuGet.Versioning.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -667,13 +665,11 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Formats.Asn1.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.IO.Pipelines.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Memory.Data.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Text.Json.dll
@@ -829,17 +825,14 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
@@ -847,8 +840,6 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
-C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.csproj.AssemblyReference.cache
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\rpswa.dswa.cache.json
@@ -877,3 +868,6 @@ C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.pdb
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\Caso_Estudio_1.genruntimeconfig.cache
 C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\obj\Debug\net8.0\ref\Caso_Estudio_1.dll
+C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Isaac Navarro\OneDrive\Escritorio\UFIDELITAS\6CUATRIMESTRE\Programacion Avanzada\CASO1\APP_Exam\Caso_Estudio_1\Caso_Estudio_1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
