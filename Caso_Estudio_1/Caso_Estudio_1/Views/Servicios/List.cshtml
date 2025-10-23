@@ -64,6 +64,12 @@
                            asp-action="ListByServicio"
                            asp-route-id="@servicio.Id">Ver citas</a>
                     </button>
+                    <button class="btn btn-primary">
+                        <a class="text-white text-decoration-none"
+                        asp-controller="Citas"
+                        asp-action="Reservar"
+                        asp-route-id="@servicio.Id">Reservar</a>
+                    </button>
                 </td>
             </tr>
         }

@@ -17,22 +17,18 @@ namespace Caso_Estudio_1.Controllers
 
         //;ISTAR CITAS
         [HttpGet]
+
         public async Task<IActionResult> List(int? idServicio)
         {
-            var citas = dbContext.Citas
-                .Include(c => c.IdServicio);
+            var citasQuery = dbContext.Citas.Include(c => c.Servicio).AsQueryable();
 
             if (idServicio.HasValue)
             {
-                ViewBag.ServicioId = idServicio.Value;
-                var citasFiltradas = await citas
-                    .Where(c => c.IdServicio == idServicio.Value)
-                    .ToListAsync();
-                return View(citasFiltradas);
+                citasQuery = citasQuery.Where(c => c.IdServicio == idServicio.Value);
             }
 
-            var todasLasCitas = await citas.ToListAsync();
-            return View(todasLasCitas);
+            var citas = await citasQuery.ToListAsync();
+            return View(citas);
         }
 
         //BUSCAR CITAS
@@ -60,9 +56,9 @@ namespace Caso_Estudio_1.Controllers
 
         //Finally the reservar stuff
         [HttpGet]
-        public async Task<IActionResult> Reservar(int idServicio)
+        public async Task<IActionResult> Reservar(int id)
         {
-            var servicio = await dbContext.Servicios.FindAsync(idServicio);
+            var servicio = await dbContext.Servicios.FindAsync(id);
 
             if (servicio == null)
             {
@@ -81,7 +77,6 @@ namespace Caso_Estudio_1.Controllers
         }
 
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> Reservar(AddCitaViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -98,8 +93,16 @@ namespace Caso_Estudio_1.Controllers
                 return RedirectToAction("List", "Servicios");
             }
 
-            //CÁLCULo
+            // Validate date ranges for SQL datetime
+            DateTime fechaCita = viewModel.FechaDeLaCita < new DateTime(1753, 1, 1)
+                                 ? new DateTime(1753, 1, 1)
+                                 : viewModel.FechaDeLaCita;
 
+            DateTime fechaRegistro = DateTime.Now;
+            if (fechaRegistro < new DateTime(1753, 1, 1))
+                fechaRegistro = new DateTime(1753, 1, 1);
+
+            // Calculate total
             decimal montoConIVA = (servicio.Monto * servicio.IVA) + servicio.Monto;
 
             var nuevaCita = new Citas
@@ -108,10 +111,12 @@ namespace Caso_Estudio_1.Controllers
                 Identificacion = viewModel.Identificacion,
                 Telefono = viewModel.Telefono,
                 Correo = viewModel.Correo,
-                FechaNacimiento = viewModel.FechaNacimiento,
+                FechaNacimiento = viewModel.FechaNacimiento < new DateTime(1753, 1, 1)
+                                  ? new DateTime(1753, 1, 1)
+                                  : viewModel.FechaNacimiento,
                 Direccion = viewModel.Direccion,
-                FechaDeLaCita = viewModel.FechaDeLaCita,
-                FechaDeRegistro = DateTime.Now,
+                FechaDeLaCita = fechaCita,
+                FechaDeRegistro = fechaRegistro,
                 IdServicio = viewModel.IdServicio,
                 MontoTotal = montoConIVA
             };
@@ -122,7 +127,6 @@ namespace Caso_Estudio_1.Controllers
             TempData["Mensaje"] = "Cita registrada exitosamente!!!";
             return RedirectToAction("List");
         }
-
 
 
 

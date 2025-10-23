@@ -38,6 +38,7 @@ namespace Caso_Estudio_1.Models.Entities
             public decimal MontoTotal { get; set; }
 
             [Required]
+
             public DateTime FechaDeLaCita { get; set; }
 
             [Required]
@@ -46,6 +47,9 @@ namespace Caso_Estudio_1.Models.Entities
             [Required]
             public int IdServicio { get; set; }
 
-        }
+            [ForeignKey("IdServicio")]
+            public virtual Servicios Servicio { get; set; }
+
+    }
     
 }
