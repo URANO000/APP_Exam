@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D22D479-4EE6-474C-AED3-9430F52EE8BD}|Caso_Estudio_1\\Caso_Estudio_1.csproj|c:\\users\\isaac navarro\\onedrive\\escritorio\\ufidelitas\\6cuatrimestre\\programacion avanzada\\caso1\\app_exam\\caso_estudio_1\\caso_estudio_1\\models\\entities\\citas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D22D479-4EE6-474C-AED3-9430F52EE8BD}|Caso_Estudio_1\\Caso_Estudio_1.csproj|solutionrelative:caso_estudio_1\\models\\entities\\citas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Citas.cs",
+              "DocumentMoniker": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Models\\Entities\\Citas.cs",
+              "RelativeDocumentMoniker": "Caso_Estudio_1\\Models\\Entities\\Citas.cs",
+              "ToolTip": "C:\\Users\\Isaac Navarro\\OneDrive\\Escritorio\\UFIDELITAS\\6CUATRIMESTRE\\Programacion Avanzada\\CASO1\\APP_Exam\\Caso_Estudio_1\\Caso_Estudio_1\\Models\\Entities\\Citas.cs",
+              "RelativeToolTip": "Caso_Estudio_1\\Models\\Entities\\Citas.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA4wDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T00:35:13.469Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
