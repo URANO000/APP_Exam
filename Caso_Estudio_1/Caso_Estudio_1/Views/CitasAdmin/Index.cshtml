@@ -2,34 +2,66 @@
 @{
     ViewData["Title"] = "Citas (Administración)";
 }
-<h2>@ViewData["Title"]</h2>
-<p><a class="btn btn-primary" asp-action="Create">Nueva cita</a></p>
-<table class="table table-hover">
-    <thead class="table-light">
-        <tr>
-            <th>#</th>
-            <th>Persona</th>
-            <th>Servicio</th>
-            <th>Fecha cita</th>
-            <th>Monto</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.Id</td>
-                <td>@c.NombreDeLaPersona</td>
-                <td>@c.NombreServicio</td>
-                <td>@c.FechaDeLaCita</td>
-                <td>₡ @c.MontoTotal</td>
-                <td class="text-end">
-                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@c.Id">Detalles</a>
-                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@c.Id">Editar</a>
-                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@c.Id">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold text-white">@ViewData["Title"]</h2>
+        <a class="btn btn-success" asp-action="Create">
+            <i class="bi bi-plus-circle me-1"></i> Nueva cita
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead style="background-color:#0d47a1; color:white;">
+                    <tr>
+                        <th>#</th>
+                        <th>Persona</th>
+                        <th>Servicio</th>
+                        <th>Fecha cita</th>
+                        <th class="text-end">Monto</th>
+                        <th class="text-end" style="width:180px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var c in Model)
+                        {
+                            <tr>
+                                <td class="fw-semibold">@c.Id</td>
+                                <td>@c.NombreDeLaPersona</td>
+                                <td>@c.NombreServicio</td>
+                                <td>@c.FechaDeLaCita.ToString("dd/MM/yyyy hh:mm tt")</td>
+                                <td class="text-end fw-semibold">₡ @c.MontoTotal.ToString("N2")</td>
+                                <td class="text-end">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@c.Id" title="Ver detalles">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@c.Id" title="Editar">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@c.Id" title="Eliminar">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">
+                                <i class="bi bi-calendar-x display-6 d-block mb-2"></i>
+                                No hay citas registradas actualmente.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

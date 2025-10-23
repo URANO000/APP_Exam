@@ -3,41 +3,101 @@
     ViewData["Title"] = "Servicios disponibles";
 }
 
-<h2 class="mb-3">@ViewData["Title"]</h2>
+<div class="container my-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-3">
+        <h2 class="fw-bold mb-0">@ViewData["Title"]</h2>
 
-@if (TempData["Msg"] != null)
-{
-    <div class="alert alert-info">@TempData["Msg"]</div>
-}
+        <!-- Formulario de búsqueda -->
+        <form asp-action="Index" method="post" class="d-flex align-items-center gap-2">
+            @Html.AntiForgeryToken()
+            <div class="input-group">
+                <span class="input-group-text bg-dark text-white">IdCita</span>
+                <input type="number" name="id" min="1" class="form-control" placeholder="Código de cita" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+        </form>
+    </div>
 
-<p class="mb-3">
-    <a class="btn btn-outline-primary" asp-action="Buscar">Buscar cita por código</a>
-</p>
+    @if (TempData["Msg"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["Msg"]
+        </div>
+    }
 
-<table class="table table-hover align-middle">
-    <thead class="table-light">
-        <tr>
-            <th>Servicio</th>
-            <th>Especialidad</th>
-            <th>Especialista</th>
-            <th>Monto</th>
-            <th>Clínica</th>
-            <th style="width: 120px;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var s in Model)
-        {
-            <tr>
-                <td>@s.Nombre</td>
-                <td>@s.EspecialidadTexto</td>
-                <td>@s.Especialista</td>
-                <td>₡ @s.Monto</td>
-                <td>@s.Clinica</td>
-                <td class="text-end">
-                    <a class="btn btn-primary btn-sm" asp-action="Reservar" asp-route-id="@s.Id">Reservar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Resultado de búsqueda -->
+    @if (ViewBag.Cita != null)
+    {
+        var c = (Caso_Estudio_1.Models.CitaDetailsViewModel)ViewBag.Cita;
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-success text-white fw-semibold">
+                Resultado de la búsqueda
+            </div>
+            <div class="card-body">
+                <p><strong>Cita #:</strong> @c.Id</p>
+                <p><strong>Nombre:</strong> @c.NombreDeLaPersona</p>
+                <p><strong>Servicio:</strong> @c.NombreServicio</p>
+                <p><strong>Especialista:</strong> @c.Especialista</p>
+                <p><strong>Clínica:</strong> @c.Clinica</p>
+                <p><strong>Fecha:</strong> @c.FechaDeLaCita.ToString("dd/MM/yyyy hh:mm tt")</p>
+                <p><strong>Monto total:</strong> ₡ @c.MontoTotal.ToString("N2")</p>
+                <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@c.Id">Ver detalles</a>
+            </div>
+        </div>
+    }
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Especialidad</th>
+                        <th>Especialista</th>
+                        <th class="text-end">Monto</th>
+                        <th>Clínica</th>
+                        <th class="text-end" style="width: 120px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var s in Model)
+                        {
+                            var badgeColor = s.Especialidad switch
+                            {
+                                1 => "bg-success",
+                                2 => "bg-info text-dark",
+                                3 => "bg-warning text-dark",
+                                _ => "bg-secondary"
+                            };
+                            <tr>
+                                <td class="fw-semibold">@s.Nombre</td>
+                                <td>
+                                    <span class="badge @badgeColor px-3 py-2">@s.EspecialidadTexto</span>
+                                </td>
+                                <td>@s.Especialista</td>
+                                <td class="text-end fw-semibold">₡ @s.Monto.ToString("N2")</td>
+                                <td>@s.Clinica</td>
+                                <td class="text-end">
+                                    <a class="btn btn-sm btn-primary" asp-action="Reservar" asp-route-id="@s.Id">
+                                        Reservar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">
+                                No hay servicios activos disponibles.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

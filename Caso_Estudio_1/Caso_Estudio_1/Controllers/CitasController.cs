@@ -13,29 +13,41 @@ namespace Caso_Estudio_1.Controllers
         {
             _data = data;
         }
-              
+
+        // GET: /Citas
+        [HttpGet]
         public IActionResult Index()
         {
             var servicios = _data.ListarServicios();
             return View(servicios);
         }
-                
-        [HttpGet]
-        public IActionResult Buscar() => View();
 
-        
+        // POST: /Citas (Búsqueda en la misma vista)
         [HttpPost]
-        public IActionResult Buscar(int id)
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(int? id)
         {
-            var cita = _data.BuscarCita(id);
+            var servicios = _data.ListarServicios();
+
+            if (!id.HasValue || id <= 0)
+            {
+                TempData["Msg"] = "Por favor, ingrese un código de cita válido.";
+                return View(servicios);
+            }
+
+            var cita = _data.BuscarCita(id.Value);
             if (cita == null)
             {
-                TempData["Msg"] = "Estimado usuario, no se ha encontrado la cita, favor realice una.";
-                return RedirectToAction(nameof(Index));
+                TempData["Msg"] = "Estimado usuario, no se ha encontrado la cita. Por favor, verifique el código.";
+                return View(servicios);
             }
-            return View("Details", cita);
+
+            // Pasamos la cita encontrada para mostrarla en la misma vista
+            ViewBag.Cita = cita;
+            return View(servicios);
         }
-                
+
+        // GET: /Citas/Reservar/{id}
         [HttpGet]
         public IActionResult Reservar(int id)
         {
@@ -51,19 +63,32 @@ namespace Caso_Estudio_1.Controllers
                 Monto = servicio.Monto,
                 IVA = servicio.IVA
             };
+
             return View(vm);
         }
 
-        // PROCESA LA RESERVA
+        // POST: /Citas/Reservar
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Reservar(AddCitaViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
             _data.RegistrarCita(model);
-            TempData["Msg"] = "Cita registrada correctamente";
+            TempData["Msg"] = "Cita registrada correctamente.";
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: /Citas/Details/{id}
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var cita = _data.BuscarCita(id);
+            if (cita == null)
+                return NotFound();
+
+            return View(cita);
         }
     }
 }

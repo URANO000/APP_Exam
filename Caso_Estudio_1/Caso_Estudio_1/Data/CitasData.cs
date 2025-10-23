@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data; // <- para SqlDbType
 using Microsoft.Data.SqlClient;
 using Caso_Estudio_1.Models;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,6 @@ namespace Caso_Estudio_1.Data
     {
         private readonly string _connectionString;
 
-        // Constructor que obtiene la cadena de conexión desde appsettings.json
         public CitasData(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Contexto");
@@ -24,44 +24,49 @@ namespace Caso_Estudio_1.Data
             using (var con = new SqlConnection(_connectionString))
             {
                 con.Open();
-                string query = "SELECT * FROM SERVICIOS WHERE Estado = 1";
+                const string query = "SELECT * FROM SERVICIOS WHERE Estado = 1";
 
                 using (var cmd = new SqlCommand(query, con))
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
+                        var especialidad = Convert.ToInt32(dr["Especialidad"]);
                         lista.Add(new ServicioViewModel
                         {
                             Id = Convert.ToInt32(dr["Id"]),
-                            Nombre = dr["Nombre"].ToString()!,
-                            Especialista = dr["Especialista"].ToString()!,
-                            Especialidad = Convert.ToInt32(dr["Especialidad"]),
+                            Nombre = dr["Nombre"].ToString() ?? string.Empty,
+                            Especialista = dr["Especialista"].ToString() ?? string.Empty,
+                            Especialidad = especialidad,
                             Monto = Convert.ToDecimal(dr["Monto"]),
-                            Clinica = dr["Clinica"].ToString()!,
+                            Clinica = dr["Clinica"].ToString() ?? string.Empty,
                             IVA = Convert.ToDecimal(dr["IVA"])
                         });
+
                     }
                 }
             }
             return lista;
         }
 
-        // ✅ 2. REGISTRAR UNA NUEVA CITA
+        // ✅ 2. REGISTRAR UNA NUEVA CITA (incluye FechaDeRegistro)
         public void RegistrarCita(AddCitaViewModel model)
         {
             using (var con = new SqlConnection(_connectionString))
             {
                 con.Open();
 
-                string query = @"
+                const string query = @"
                 INSERT INTO CITAS 
-                (NombreDeLaPersona, Identificacion, Telefono, Correo, FechaNacimiento, Direccion, MontoTotal, FechaDeLaCita, IdServicio)
-                VALUES (@Nombre, @Identificacion, @Telefono, @Correo, @FechaNacimiento, @Direccion, @MontoTotal, @FechaDeLaCita, @IdServicio)";
+                (NombreDeLaPersona, Identificacion, Telefono, Correo, FechaNacimiento, Direccion, 
+                 MontoTotal, FechaDeLaCita, FechaDeRegistro, IdServicio)
+                VALUES 
+                (@Nombre, @Identificacion, @Telefono, @Correo, @FechaNacimiento, @Direccion, 
+                 @MontoTotal, @FechaDeLaCita, GETDATE(), @IdServicio)";
 
                 using (var cmd = new SqlCommand(query, con))
                 {
-                    decimal montoTotal = model.Monto + (model.Monto * (model.IVA / 100m));
+                    var total = model.Monto + (model.Monto * (model.IVA / 100m));
 
                     cmd.Parameters.AddWithValue("@Nombre", model.NombreDeLaPersona);
                     cmd.Parameters.AddWithValue("@Identificacion", model.Identificacion);
@@ -69,7 +74,11 @@ namespace Caso_Estudio_1.Data
                     cmd.Parameters.AddWithValue("@Correo", model.Correo);
                     cmd.Parameters.AddWithValue("@FechaNacimiento", model.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@Direccion", model.Direccion);
-                    cmd.Parameters.AddWithValue("@MontoTotal", montoTotal);
+
+                    // Tipar decimal explícitamente
+                    var pTotal = cmd.Parameters.Add("@MontoTotal", SqlDbType.Decimal);
+                    pTotal.Precision = 18; pTotal.Scale = 2; pTotal.Value = total;
+
                     cmd.Parameters.AddWithValue("@FechaDeLaCita", model.FechaDeLaCita);
                     cmd.Parameters.AddWithValue("@IdServicio", model.IdServicio);
 
@@ -85,7 +94,7 @@ namespace Caso_Estudio_1.Data
             {
                 con.Open();
 
-                string query = @"
+                const string query = @"
                     SELECT c.*, s.Nombre AS NombreServicio, s.Especialista, s.Clinica, s.Especialidad
                     FROM CITAS c 
                     INNER JOIN SERVICIOS s ON c.IdServicio = s.Id
@@ -99,6 +108,7 @@ namespace Caso_Estudio_1.Data
                     {
                         if (dr.Read())
                         {
+                            var esp = Convert.ToInt32(dr["Especialidad"]);
                             return new CitaDetailsViewModel
                             {
                                 Id = Convert.ToInt32(dr["Id"]),
@@ -111,7 +121,7 @@ namespace Caso_Estudio_1.Data
                                 NombreServicio = dr["NombreServicio"].ToString()!,
                                 Especialista = dr["Especialista"].ToString()!,
                                 Clinica = dr["Clinica"].ToString()!,
-                                EspecialidadTexto = ((int)dr["Especialidad"]) switch
+                                EspecialidadTexto = esp switch
                                 {
                                     1 => "Medicina General",
                                     2 => "Imagenología",
@@ -136,11 +146,11 @@ namespace Caso_Estudio_1.Data
             using (var con = new SqlConnection(_connectionString))
             {
                 con.Open();
-                var sql = @"SELECT c.Id, c.NombreDeLaPersona, c.Telefono, c.Correo, c.Identificacion,
-                                   c.FechaDeLaCita, c.MontoTotal,
-                                   s.Nombre AS NombreServicio
-                            FROM CITAS c INNER JOIN SERVICIOS s ON c.IdServicio = s.Id
-                            ORDER BY c.Id DESC";
+                const string sql = @"SELECT c.Id, c.NombreDeLaPersona, c.Telefono, c.Correo, c.Identificacion,
+                                            c.FechaDeLaCita, c.MontoTotal,
+                                            s.Nombre AS NombreServicio
+                                     FROM CITAS c INNER JOIN SERVICIOS s ON c.IdServicio = s.Id
+                                     ORDER BY c.Id DESC";
                 using (var cmd = new SqlCommand(sql, con))
                 using (var dr = cmd.ExecuteReader())
                 {
@@ -169,21 +179,22 @@ namespace Caso_Estudio_1.Data
             using (var con = new SqlConnection(_connectionString))
             {
                 con.Open();
-                var sql = @"SELECT c.*, s.Nombre AS NombreServicio, s.Especialista, s.Especialidad, s.Monto, s.IVA
-                            FROM CITAS c INNER JOIN SERVICIOS s ON c.IdServicio = s.Id
-                            WHERE c.Id=@Id";
+                const string sql = @"SELECT c.*, s.Nombre AS NombreServicio, s.Especialista, s.Especialidad, s.Monto, s.IVA
+                                     FROM CITAS c INNER JOIN SERVICIOS s ON c.IdServicio = s.Id
+                                     WHERE c.Id=@Id";
                 using (var cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
                     using (var dr = cmd.ExecuteReader())
                     {
                         if (!dr.Read()) return null;
+                        var esp = Convert.ToInt32(dr["Especialidad"]);
                         return new AddCitaViewModel
                         {
                             IdServicio = Convert.ToInt32(dr["IdServicio"]),
                             NombreServicio = dr["NombreServicio"].ToString()!,
                             Especialista = dr["Especialista"].ToString()!,
-                            EspecialidadTexto = ((int)dr["Especialidad"]) switch
+                            EspecialidadTexto = esp switch
                             {
                                 1 => "Medicina General",
                                 2 => "Imagenología",
@@ -205,7 +216,7 @@ namespace Caso_Estudio_1.Data
             }
         }
 
-        // ✅ 6. ACTUALIZAR UNA CITA
+        // ✅ 6. ACTUALIZAR UNA CITA (recalcula total desde SERVICIOS)
         public void ActualizarCita(int id, AddCitaViewModel m)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -213,22 +224,24 @@ namespace Caso_Estudio_1.Data
                 con.Open();
 
                 decimal monto, iva;
-                var getServ = new SqlCommand("SELECT Monto, IVA FROM SERVICIOS WHERE Id=@S", con);
-                getServ.Parameters.AddWithValue("@S", m.IdServicio);
-                using (var dr = getServ.ExecuteReader())
+                using (var getServ = new SqlCommand("SELECT Monto, IVA FROM SERVICIOS WHERE Id=@S", con))
                 {
-                    if (!dr.Read()) throw new Exception("Servicio no encontrado");
-                    monto = Convert.ToDecimal(dr["Monto"]);
-                    iva = Convert.ToDecimal(dr["IVA"]);
+                    getServ.Parameters.AddWithValue("@S", m.IdServicio);
+                    using (var dr = getServ.ExecuteReader())
+                    {
+                        if (!dr.Read()) throw new Exception("Servicio no encontrado");
+                        monto = Convert.ToDecimal(dr["Monto"]);
+                        iva = Convert.ToDecimal(dr["IVA"]);
+                    }
                 }
 
                 var total = monto + (monto * (iva / 100m));
 
-                var sql = @"UPDATE CITAS SET
-                              NombreDeLaPersona=@Nombre, Identificacion=@Identificacion, Telefono=@Telefono,
-                              Correo=@Correo, FechaNacimiento=@FechaNacimiento, Direccion=@Direccion,
-                              MontoTotal=@MontoTotal, FechaDeLaCita=@FechaDeLaCita, IdServicio=@IdServicio
-                            WHERE Id=@Id";
+                const string sql = @"UPDATE CITAS SET
+                                        NombreDeLaPersona=@Nombre, Identificacion=@Identificacion, Telefono=@Telefono,
+                                        Correo=@Correo, FechaNacimiento=@FechaNacimiento, Direccion=@Direccion,
+                                        MontoTotal=@MontoTotal, FechaDeLaCita=@FechaDeLaCita, IdServicio=@IdServicio
+                                     WHERE Id=@Id";
 
                 using (var cmd = new SqlCommand(sql, con))
                 {
@@ -238,7 +251,10 @@ namespace Caso_Estudio_1.Data
                     cmd.Parameters.AddWithValue("@Correo", m.Correo);
                     cmd.Parameters.AddWithValue("@FechaNacimiento", m.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@Direccion", m.Direccion);
-                    cmd.Parameters.AddWithValue("@MontoTotal", total);
+
+                    var pTotal = cmd.Parameters.Add("@MontoTotal", SqlDbType.Decimal);
+                    pTotal.Precision = 18; pTotal.Scale = 2; pTotal.Value = total;
+
                     cmd.Parameters.AddWithValue("@FechaDeLaCita", m.FechaDeLaCita);
                     cmd.Parameters.AddWithValue("@IdServicio", m.IdServicio);
                     cmd.Parameters.AddWithValue("@Id", id);
