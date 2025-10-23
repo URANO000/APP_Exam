@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Caso_Estudio_1.Models.CitaAdminDto>
+@{
+    ViewData["Title"] = "Histórico de Citas";
+}
+
+<h1 class="mb-3">Histórico de Citas</h1>
+
+<form method="get" asp-controller="ReservaAdmin" asp-action="List" class="mb-3">
+    <div style="display:flex; gap:8px; align-items:center;">
+        <label for="idServicio">Servicio:</label>
+        <select id="idServicio" name="idServicio" asp-items="@(ViewBag.Servicios)">
+            <option value="">-- Todos --</option>
+        </select>
+        <button type="submit">Filtrar</button>
+        <a asp-controller="ReservaAdmin" asp-action="List">Limpiar</a>
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <div>No hay citas para los criterios seleccionados.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id cita</th>
+                <th>Nombre de Persona</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Identificación</th>
+                <th>Monto total</th>
+                <th>Fecha nacimiento</th>
+                <th>Fecha cita</th>
+                <th>Fecha registro</th>
+                <th>Servicio</th>
+                <th>Especialidad</th>
+                <th>Especialista</th>
+                <th>Clínica</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.NombreDeLaPersona</td>
+                    <td>@c.Telefono</td>
+                    <td>@c.Correo</td>
+                    <td>@c.Identificacion</td>
+                    <td>₡ @c.MontoTotal.ToString("N2")</td>
+                    <td>@c.FechaNacimiento.ToString("yyyy-MM-dd")</td>
+                    <td>@c.FechaDeLaCita.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@c.FechaDeRegistro.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@c.NombreServicio (Id @c.IdServicio)</td>
+                    <td>@c.EspecialidadEnProsa</td>
+                    <td>@c.Especialista</td>
+                    <td>@c.Clinica</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
