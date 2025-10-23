@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Caso_Estudio_1.Models.Entities
 {
-    public class Citas
-    {
+
         [Table("CITAS")]
-        public class Cita
+        public class Citas
         {
             [Key]
             public int Id { get; set; }
@@ -48,5 +47,5 @@ namespace Caso_Estudio_1.Models.Entities
             public int IdServicio { get; set; }
 
         }
-    }
+    
 }

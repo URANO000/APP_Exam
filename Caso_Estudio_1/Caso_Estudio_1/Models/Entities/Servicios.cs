@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Caso_Estudio_1.Models.Entities
 {
-    public class Servicios
-    {
         [Table("SERVICIOS")]
-        public class Servicio
+        public class Servicios
         {
             [Key]
             public int Id { get; set; }
@@ -45,5 +43,5 @@ namespace Caso_Estudio_1.Models.Entities
 
             public bool? Estado { get; set; }
         }
-    }
+    
 }
