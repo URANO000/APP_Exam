@@ -11,7 +11,8 @@ namespace Caso_Estudio_1.Data
         }
 
         //Entities are gonna go here, we are referencing the tables
-        public DbSet<Citas> Citas { get; set; }
-        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Citas> Cita { get; set; }
+
+        public DbSet<Servicios> Servicio { get; set; }
     }
 }
