@@ -1,0 +1,67 @@
+﻿@model Caso_Estudio_1.Models.AddCitaViewModel
+
+
+<h3 class="mb-4">Reservar Cita</h3>
+
+@if (ViewBag.Servicio == null)
+{
+    <p class="text-warning">No se encontró el servicio seleccionado :(</p>
+}
+else
+{
+    <div class="mb-3">
+        <h5>Servicio seleccionado:</h5>
+        <p><strong>Nombre:</strong> @ViewBag.Servicio.Nombre</p>
+        <p><strong>Monto:</strong> ₡@ViewBag.Servicio.Monto</p>
+        <p><strong>IVA:</strong> @ViewBag.Servicio.IVA</p>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="IdServicio" /> 
+
+        <div class="mb-3">
+            <label class="form-label">Nombre de la Persona</label>
+            <input type="text" class="form-control" asp-for="NombreDeLaPersona" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Identificación</label>
+            <input type="text" class="form-control" asp-for="Identificacion" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control" asp-for="Telefono" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Correo</label>
+            <input type="email" class="form-control" asp-for="Correo" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" asp-for="FechaNacimiento" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <input type="text" class="form-control" asp-for="Direccion" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha de la Cita</label>
+            <input type="date" class="form-control"
+                   asp-for="FechaDeLaCita"
+                   min="1753-01-01"
+                   value="@(Model.FechaDeLaCita.ToString("yyyy-MM-dd"))"
+                   required />
+        </div>
+
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Reservar</button>
+            <a class="btn btn-dark text-white text-decoration-none" asp-controller="Citas" asp-action="List">Cancelar</a>
+        </div>
+    </form>
+}

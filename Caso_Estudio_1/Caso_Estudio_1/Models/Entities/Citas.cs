@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Caso_Estudio_1.Models.Entities
 {
-    public class Citas
-    {
+
         [Table("CITAS")]
-        public class Cita
+        public class Citas
         {
             [Key]
             public int Id { get; set; }
@@ -39,6 +38,7 @@ namespace Caso_Estudio_1.Models.Entities
             public decimal MontoTotal { get; set; }
 
             [Required]
+
             public DateTime FechaDeLaCita { get; set; }
 
             [Required]
@@ -47,5 +47,9 @@ namespace Caso_Estudio_1.Models.Entities
             [Required]
             public int IdServicio { get; set; }
 
-        }
+            [ForeignKey("IdServicio")]
+            public virtual Servicios Servicio { get; set; }
+
     }
+    
+}
