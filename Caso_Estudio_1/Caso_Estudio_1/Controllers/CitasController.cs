@@ -17,34 +17,38 @@ namespace Caso_Estudio_1.Controllers
 
         //;ISTAR CITAS
         [HttpGet]
-
-        public async Task<IActionResult> List(int? idServicio)
+        public async Task<IActionResult> List(int? searchId)
         {
             var citasQuery = dbContext.Citas.Include(c => c.Servicio).AsQueryable();
 
-            if (idServicio.HasValue)
+            if (searchId.HasValue)
             {
-                citasQuery = citasQuery.Where(c => c.IdServicio == idServicio.Value);
+                citasQuery = citasQuery.Where(c => c.Id == searchId.Value);
+                if (!citasQuery.Any())
+                {
+                    TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
+                }
             }
 
             var citas = await citasQuery.ToListAsync();
             return View(citas);
         }
 
+
         // GET: /Citas/Buscar/5
-        [HttpGet("Citas/Buscar/{id}")]
-        public async Task<IActionResult> Buscar(int id)
-        {
-            var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
+        //[HttpGet("Citas/Buscar/{id}")]
+        //public async Task<IActionResult> Buscar(int id)
+        //{
+        //    var cita = await dbContext.Citas.Include(c => c.Servicio).FirstOrDefaultAsync(c => c.Id == id);
 
-            if (cita == null)
-            {
-                TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
-                return RedirectToAction("List");
-            }
+        //    if (cita == null)
+        //    {
+        //        TempData["Mensaje"] = "No se ha encontrado la cita, favor realice una!";
+        //        return RedirectToAction("List");
+        //    }
 
-            return View("Detalles", cita);
-        }
+        //    return View("Detalles", cita);
+        //}
 
         // GET: /Citas/Detalles/5
         [HttpGet("Citas/Detalles/{id}")]
