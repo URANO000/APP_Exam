@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Caso_Estudio_1.Models.CitaDetailsViewModel>
+@{
+    ViewData["Title"] = "Citas (Administración)";
+}
+<h2>@ViewData["Title"]</h2>
+<p><a class="btn btn-primary" asp-action="Create">Nueva cita</a></p>
+<table class="table table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>#</th>
+            <th>Persona</th>
+            <th>Servicio</th>
+            <th>Fecha cita</th>
+            <th>Monto</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.NombreDeLaPersona</td>
+                <td>@c.NombreServicio</td>
+                <td>@c.FechaDeLaCita</td>
+                <td>₡ @c.MontoTotal</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@c.Id">Detalles</a>
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@c.Id">Editar</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@c.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
